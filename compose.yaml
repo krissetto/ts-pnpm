@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      init: true
+    restart: unless-stopped
+    ports:
+      - "4032:4032"
+    # env_file: ./.env  # Uncomment if .env file exists
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
